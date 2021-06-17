@@ -11,13 +11,14 @@ public class Principal {
 
     private VectorClientes tablaClientes = new VectorClientes();
     private Galeria tablapeliculas = new Galeria();
+    private Prestamo pr = new Prestamo();
 
     public Principal(){
 
         int menu = 0;
 
         while(menu >= 0){
-            System.out.println("Bienvenido a memorabilia \n\n");
+            System.out.println("\n\nBienvenido a memorabilia \n\n");
             System.out.println("1) Ingreso de clientes");
             System.out.println("2) Mostrar clientes");
             System.out.println("3) Ordenar Clientes Ascente");
@@ -26,6 +27,7 @@ public class Principal {
             System.out.println("6) Mostrar peliculas");
             System.out.println("7) Ordenar peliculas Ascente");
             System.out.println("8) Ordenar peliculas Descendente");
+            System.out.println("9) prestar peliculas");
             System.out.println("-1) Salir");
             System.out.println("\n");
             menu = IngresoDatos.getEntero("Ingrese la opción ", true);
@@ -65,9 +67,12 @@ public class Principal {
                 tablapeliculas.mostrarPeliculas();
             }
             if (menu == 8) {
-                
+
                 tablapeliculas.ordenarPeliculaPorNombre(false);
                 tablapeliculas.mostrarPeliculas();
+            }
+            if (menu == 9) {
+               pr.peliculapresta(tablaClientes,tablapeliculas);
             }
         }
 

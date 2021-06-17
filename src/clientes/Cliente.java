@@ -7,6 +7,7 @@ public class Cliente {
     private int id;
     private String nombre;
     private int telefono;
+    private boolean tienePrestado;
 
     public Cliente(int id, String nombre, int telefono){
         this.id = id;
@@ -40,13 +41,33 @@ public class Cliente {
         this.telefono = telefono;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public boolean isTienePrestado() {
+        return tienePrestado;
+    }
+
+    public void setTienePrestado(boolean tienePrestado) {
+        this.tienePrestado = tienePrestado;
+    }
 
     //fin getters y setters
 
+
+
     public String getInformacion(){
-        String resultado = "Id: "+id+" Nombre del cliente: " + nombre;
+        String resultado = "Id: "+id+" Nombre del cliente: " + nombre+ "  telefono "+telefono+ " Estado de prestamo "+mostrarprestamo(tienePrestado);
         return resultado;
+    }
+
+    public String mostrarprestamo(boolean estAActivo){
+if (estAActivo) {
+    return "Activo";
+} else {
+    return "No Activo";
+}
     }
     
 }
